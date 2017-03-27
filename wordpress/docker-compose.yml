@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:latest
+    volumes:
+      - ./wp-db:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: wordpress_for_theme_develop
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: hogehoge
+
+  wp:
+    depends_on:
+      - db
+    image: wordpress:latest
+    volumes:
+       - ./themes/develop:/var/www/html/wp-content/themes/develop
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_NAME: wordpress_for_theme_develop
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: hogehoge
+      WORDPRESS_DB_HOST: db:3306
+
+                                  
