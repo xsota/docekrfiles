@@ -1,0 +1,12 @@
+version: "3"
+
+
+services:
+  minecraft:
+    build: .
+    image: xsota/spigot:latest
+    volumes:
+      - ./app:/minecraft/app
+    ports:
+      - "25565:25565"
+      
