@@ -8,6 +8,10 @@ VOLUME ["/minecraft/app"]
 WORKDIR /minecraft
 
 ADD https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar tmp/BuildTools.jar
+ADD run.sh /usr/local/bin/run.sh
+RUN chmod +x /usr/local/bin/run.sh
+
+ENV EULA false
 
 #RUN apt-get update \
 #    && apt-get install \
@@ -35,6 +39,6 @@ RUN cd tmp \
 
 WORKDIR /minecraft/app
 
-CMD java -Xms512m -jar /minecraft/spigot.jar nogui
+CMD /usr/local/bin/run.sh
 
 EXPOSE 25565

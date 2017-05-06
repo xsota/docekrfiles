@@ -1,6 +1,5 @@
 version: "3"
 
-
 services:
   minecraft:
     build: .
@@ -9,4 +8,5 @@ services:
       - ./app:/minecraft/app
     ports:
       - "25565:25565"
-      
+    environment:
+      - EULA=true
