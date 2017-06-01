@@ -33,7 +33,7 @@ ENV EULA false
 #    && rm -rf tmp/*
 
 RUN cd tmp \
-    && java -jar BuildTools.jar --rev 1.11.2 \
+    && java -jar BuildTools.jar --dev \
     && cp spigot-*.jar /minecraft/spigot.jar \
     && rm -rf /minecraft/tmp/*
 
