@@ -10,7 +10,7 @@ ADD gulpfile.js /gulpfile.js
 
 
 RUN npm install -g gulp\
-    && npm install gulp gulp-watch gulp-aglio
+    && npm install gulp gulp-watch gulp-aglio gulp-plumber
 
 
 CMD gulp watch
